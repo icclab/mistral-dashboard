@@ -23,8 +23,8 @@ from horizon import forms
 from horizon import tables
 
 from mistraldashboard import api
-from mistraldashboard.delay_tolerant_workload import forms as mistral_forms
-from mistraldashboard.delay_tolerant_workload.tables import DTWTable
+from mistraldashboard.delay_tolerant_workloads import forms as mistral_forms
+from mistraldashboard.delay_tolerant_workloads.tables import DTWTable
 
 
 class OverviewView(generic.TemplateView):

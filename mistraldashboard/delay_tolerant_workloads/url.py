@@ -15,7 +15,7 @@
 
 from django.conf.urls import url  # noqa
 
-from mistraldashboard.delay_tolerant_workload import views
+from mistraldashboard.delay_tolerant_workloads import views
 
 DTW = r'^(?P<delay_tolerant_workload_name>[^/]+)/%s$'
 
