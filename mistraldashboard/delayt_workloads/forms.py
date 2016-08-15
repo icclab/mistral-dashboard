@@ -110,13 +110,11 @@ class CreateForm(forms.SelfHandlingForm):
     deadline = forms.CharField(
         label=_('Deadline (YYYY-MM-DDTHH:MM:SS)'),
         help_text=_('Date and time of the deadline.'),
-        widget=forms.widgets.TextInput(),
         required=True
     )
     job_duration = forms.CharField(
         label=_('Job Duration (Minutes)'),
         help_text=_('Approximated time to execute the workflow.'),
-        widget=forms.widgets.TextInput(),
         required=True
     )
 
@@ -174,9 +172,6 @@ class CreateForm(forms.SelfHandlingForm):
     def handle(self, request, data):
         data['input'] = convert_empty_string_to_none(data['input'])
         data['params'] = convert_empty_string_to_none(data['params'])
-        data['schedule_pattern'] = convert_empty_string_to_none(
-            data['schedule_pattern']
-        )
         data['deadline'] = convert_empty_string_to_none(data['deadline'])
         data['job_duration'] = convert_empty_string_to_none(
             data['job_duration']

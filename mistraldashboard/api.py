@@ -448,7 +448,7 @@ def delay_tolerant_workload_create(
     :param workflow_ID: Workflow ID
     :param workflow_input: Workflow input
     :param workflow_params: Workflow params <* * * * *>
-    :param job_duration: <* * * * *>
+    :param job_duration: Job duration
     :param deadline:
            Date and time of the first execution <YYYY-MM-DD HH:MM>
     """
