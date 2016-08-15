@@ -183,7 +183,7 @@ class CreateForm(forms.SelfHandlingForm):
         )
 
         try:
-            api.delay_tolerant_wokload_create(
+            api.delay_tolerant_workload_create(
                 request,
                 data['name'],
                 data['workflow_id'],

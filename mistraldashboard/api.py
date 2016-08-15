@@ -396,43 +396,43 @@ def cron_trigger_create(
     )
 
 
-@handle_errors(_("Unable to retrieve cron trigger list"), [])
-def delay_tolerant_wokload_list(request):
+@handle_errors(_("Unable to retrieve delay tolerant workload list"), [])
+def delay_tolerant_workload_list(request):
     """Returns all cron triggers.
 
     :param request: Request data
     """
 
-    return mistralclient(request).delay_tolerant_wokloads.list()
+    return mistralclient(request).delay_tolerant_workloads.list()
 
 
-@handle_errors(_("Unable to retrieve cron trigger"), [])
-def delay_tolerant_wokload_get(request, delay_tolerant_wokload_name):
+@handle_errors(_("Unable to retrieve delay tolerant workload"), [])
+def delay_tolerant_workload_get(request, delay_tolerant_workload_name):
     """Get specific cron trigger.
 
     :param request: Request data
-    :param cron_trigger_name: Cron trigger name
+    :param delay_tolerant_wokload_name: Delay Tolerant Workload name
     """
 
-    return mistralclient(request).delay_tolerant_wokload.get(
-        delay_tolerant_wokload_name
+    return mistralclient(request).delay_tolerant_workloads.get(
+        delay_tolerant_workload_name
     )
 
 
-@handle_errors(_("Unable to delete cron trigger/s"), [])
-def delay_tolerant_wokload_delete(request, delay_tolerant_wokload_name):
+@handle_errors(_("Unable to delete delay tolerant workload/s"), [])
+def delay_tolerant_workload_delete(request, delay_tolerant_workload_name):
     """Delete Cron Trigger.
 
     :param request: Request data
-    :param cron_trigger_name: Cron Trigger name
+    :param delay_tolerant_wokload_name: Delay Tolerant Workload name
     """
 
-    return mistralclient(request).delay_tolerant_wokload.delete(
-        delay_tolerant_wokload_name
+    return mistralclient(request).delay_tolerant_workloads.delete(
+        delay_tolerant_workload_name
     )
 
 
-def delay_tolerant_wokload_create(
+def delay_tolerant_workload_create(
     request,
     cron_trigger_name,
     workflow_ID,
@@ -448,13 +448,12 @@ def delay_tolerant_wokload_create(
     :param workflow_ID: Workflow ID
     :param workflow_input: Workflow input
     :param workflow_params: Workflow params <* * * * *>
-    :param pattern: <* * * * *>
-    :param first_time:
+    :param job_duration: <* * * * *>
+    :param deadline:
            Date and time of the first execution <YYYY-MM-DD HH:MM>
-    :param count: Number of wanted executions <integer>
     """
 
-    return mistralclient(request).delay_tolerant_wokload.create(
+    return mistralclient(request).delay_tolerant_workloads.create(
         cron_trigger_name,
         workflow_ID,
         workflow_input,

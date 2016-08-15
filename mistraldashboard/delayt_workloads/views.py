@@ -32,4 +32,4 @@ class IndexView(tables.DataTableView):
     template_name = 'mistral/delayt_workloads/index.html'
 
     def get_data(self):
-        return api.delay_tolerant_wokload_list(self.request)
+        return api.delay_tolerant_workload_list(self.request)
