@@ -456,8 +456,8 @@ def delay_tolerant_workload_create(
     return mistralclient(request).delay_tolerant_workloads.create(
         cron_trigger_name,
         workflow_ID,
-        workflow_input,
-        workflow_params,
+        deadline,
         job_duration,
-        deadline
+        workflow_input,
+        workflow_params
     )

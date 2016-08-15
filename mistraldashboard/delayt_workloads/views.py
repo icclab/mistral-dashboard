@@ -37,7 +37,7 @@ class OverviewView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(OverviewView, self).get_context_data(**kwargs)
         delay_tolerant_workload = {}
-        delay_tolerant_workload = api.cron_trigger_get(
+        delay_tolerant_workload = api.delay_tolerant_workload_get(
             self.request,
             kwargs['delay_tolerant_workload_name']
         )

@@ -17,10 +17,10 @@ from django.conf.urls import url  # noqa
 
 from mistraldashboard.delayt_workloads import views
 
-# DTW = r'^(?P<delay_tolerant_workload_name>[^/]+)/%s$'
+DTW = r'^(?P<delay_tolerant_workload_name>[^/]+)/%s$'
 
 urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
-    # url(DTW % 'detail', views.OverviewView.as_view(), name='detail'),
+    url(DTW % 'detail', views.OverviewView.as_view(), name='detail'),
     url(r'^create$', views.CreateView.as_view(), name='create'),
 ]
