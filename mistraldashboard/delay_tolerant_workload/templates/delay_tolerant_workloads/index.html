@@ -1,0 +1,9 @@
+{% extends 'mistral/default/table.html' %}
+{% load i18n %}
+{% block title %}
+    {% trans "Delay Tolerant Workloads" %}
+{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Delay Tolerant Workloads")%}
+{% endblock page_header %}

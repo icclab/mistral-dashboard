@@ -23,15 +23,15 @@ from horizon import forms
 from horizon import tables
 
 from mistraldashboard import api
-from mistraldashboard.cron_triggers import forms as mistral_forms
-from mistraldashboard.cron_triggers.tables import CronTriggersTable
+from mistraldashboard.delay_tolerant_workload import forms as mistral_forms
+from mistraldashboard.delay_tolerant_workload.tables import DTWTable
 
 
 class OverviewView(generic.TemplateView):
-    template_name = 'mistral/cron_triggers/detail.html'
+    template_name = 'mistral/delay_tolerant_workloads/detail.html'
     page_title = _("Delay Tolerant Workload Details")
     workflow_url = 'horizon:mistral:workflows:detail'
-    list_url = 'horizon:mistral:delay_tolerant_workload:index'
+    list_url = 'horizon:mistral:delay_tolerant_workloads:index'
 
     def get_context_data(self, **kwargs):
         context = super(OverviewView, self).get_context_data(**kwargs)
@@ -56,9 +56,11 @@ class CreateView(forms.ModalFormView):
     form_id = "create_delay_tolerant_workload"
     form_class = mistral_forms.CreateForm
     submit_label = _("Create Delay Tolerant Workload")
-    submit_url = reverse_lazy("horizon:mistral:cron_triggers:create")
-    success_url = reverse_lazy('horizon:mistral:cron_triggers:index')
-    page_title = _("Create Cron Trigger")
+    submit_url = reverse_lazy(
+        "horizon:mistral:delay_tolerant_workloads:create")
+    success_url = reverse_lazy(
+        'horizon:mistral:delay_tolerant_workloads:index')
+    page_title = _("Create Delay Tolerant Workload")
 
     def get_form_kwargs(self):
         kwargs = super(CreateView, self).get_form_kwargs()
@@ -67,8 +69,8 @@ class CreateView(forms.ModalFormView):
 
 
 class IndexView(tables.DataTableView):
-    table_class = CronTriggersTable
-    template_name = 'mistral/cron_triggers/index.html'
+    table_class = DTWTable
+    template_name = 'mistral/delay_tolerant_workloads/index.html'
 
     def get_data(self):
-        return api.cron_trigger_list(self.request)
+        return api.delay_tolerant_wokload_list(self.request)
