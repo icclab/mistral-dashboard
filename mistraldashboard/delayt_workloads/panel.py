@@ -19,9 +19,9 @@ import horizon
 from mistraldashboard import dashboard
 
 
-class DTW(horizon.Panel):
+class DelayTolerantWorkloads(horizon.Panel):
     name = _("Delay Tolerant Workloads")
-    slug = 'delay_tolerant_workloads'
+    slug = 'delayt_workloads'
 
 
-dashboard.MistralDashboard.register(DTW)
+dashboard.MistralDashboard.register(DelayTolerantWorkloads)

@@ -30,7 +30,7 @@ class MistralDashboard(horizon.Dashboard):
         'tasks',
         'actions',
         'cron_triggers',
-        'delay_tolerant_workloads'
+        'delayt_workloads',
     )
     default_panel = 'default'
     roles = ('admin',)
