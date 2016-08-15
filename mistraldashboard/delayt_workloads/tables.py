@@ -27,7 +27,7 @@ from mistraldashboard.default.utils import humantime
 class CreateDelayTolerantWorkload(tables.LinkAction):
     name = "create"
     verbose_name = _("Create Delay Tolerant Workload")
-    url = "horizon:mistral:delay_tolerant_workloads:create"
+    url = "horizon:mistral:delayt_workloads:create"
     classes = ("ajax-modal",)
     icon = "plus"
 
@@ -50,7 +50,7 @@ class DeleteDelayTolerantWorkload(tables.DeleteAction):
         )
 
     def delete(self, request, delay_tolerant_workload_name):
-        api.delay_tolerant_wokload_delete(request,
+        api.delay_tolerant_workload_delete(request,
                                           delay_tolerant_workload_name)
 
 
@@ -61,11 +61,11 @@ class WorkflowColumn(tables.Column):
         return reverse(workflow_url, args=[obj_id])
 
 
-class DTWTable(tables.DataTable):
+class DelayTolerantWorkloadsTable(tables.DataTable):
     id = tables.Column(
         "id",
         verbose_name=_("ID"),
-        link="horizon:mistral:delayt_workloads:index"
+        link="horizon:mistral:delayt_workloads:detail"
     )
     name = tables.Column(
         "name",
@@ -100,7 +100,7 @@ class DTWTable(tables.DataTable):
 
     class Meta(object):
         name = "delay tolerant workload"
-        verbose_name = _("Delay tolerant Workload")
+        verbose_name = _("Delay Tolerant Workload")
         table_actions = (
             tables.FilterAction,
             CreateDelayTolerantWorkload,

@@ -24,7 +24,8 @@ from horizon import tables
 
 from mistraldashboard import api
 # from mistraldashboard.delayt_workloads import forms as mistral_forms
-from mistraldashboard.delayt_workloads.tables import DTWTable
+from mistraldashboard.delayt_workloads.tables import \
+    DelayTolerantWorkloadsTable
 
 
 class OverviewView(generic.TemplateView):
@@ -51,7 +52,7 @@ class OverviewView(generic.TemplateView):
 
 
 class IndexView(tables.DataTableView):
-    table_class = DTWTable
+    table_class = DelayTolerantWorkloadsTable
     template_name = 'mistral/delayt_workloads/index.html'
 
     def get_data(self):
