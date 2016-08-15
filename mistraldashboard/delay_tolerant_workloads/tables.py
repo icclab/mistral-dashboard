@@ -61,7 +61,7 @@ class WorkflowColumn(tables.Column):
         return reverse(workflow_url, args=[obj_id])
 
 
-class CronTriggersTable(tables.DataTable):
+class DTWTable(tables.DataTable):
     id = tables.Column(
         "id",
         verbose_name=_("ID"),
