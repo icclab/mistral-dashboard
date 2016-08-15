@@ -7,3 +7,60 @@
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Cron Triggers")%}
 {% endblock page_header %}
+
+<div class="info row-fluid detail">
+  <div class="span12">
+    <div class="info row-fluid detail">
+      <div class="span3">
+        <h4>{% trans "Test stat 1" %}</h4>
+        <hr class="header_rule" />
+        <div class="overview_chart">
+          <div class="chart_container">
+            <div class="chart"
+                 data-chart-type="overview_line_chart"
+                 data-url="/admin/samples?meter=test1"
+                 data-form-selector='#linechart_general_form'
+                 data-settings='{ "auto_size": false, "axes_x" : false, "axes_y" : false }'>
+            </div>
+          </div>
+          <div class="bar_chart_container">
+            <div class="chart"
+              data-chart-type="overview_bar_chart">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="span3">
+        <h4>{% trans "Test stat 1" %}</h4>
+        <hr class="header_rule" />
+        <div class="overview_chart">
+          <div class="chart_container">
+            <div class="chart"
+                 data-chart-type="overview_line_chart"
+                 data-url="/admin/samples?meter=test2"
+                 data-form-selector='#linechart_general_form'
+                 >
+            </div>
+          </div>
+          <div class="bar_chart_container">
+            <div class="chart"
+              data-chart-type="overview_bar_chart">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info row-fluid detail">
+      <h4>{% trans "Test bar 1" %}</h4>
+      <div style="width: 100px; min-width: 100px; height: 20px; min-height: 20px">
+        <div class="chart"
+          data-chart-type="bar_chart"
+          data-tooltip-used='Used'
+          data-tooltip-free='Free'
+          data-tooltip-average='Average'
+          data-settings='{"orientation": "horizontal", "color_scale_range": ["#000060", "#99FFFF"]}'
+          data-used="20"
+          data-average="30">
+        </div>
