@@ -65,7 +65,7 @@ class DTWTable(tables.DataTable):
     id = tables.Column(
         "id",
         verbose_name=_("ID"),
-        link="horizon:mistral:cron_triggers:detail"
+        link="horizon:mistral:delayt_workloads:index"
     )
     name = tables.Column(
         "name",
@@ -99,7 +99,7 @@ class DTWTable(tables.DataTable):
         return datum.name
 
     class Meta(object):
-        name = "cron trigger"
+        name = "delay tolerant workload"
         verbose_name = _("Delay tolerant Workload")
         table_actions = (
             tables.FilterAction,
