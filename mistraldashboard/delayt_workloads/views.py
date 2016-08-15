@@ -19,11 +19,11 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
-# from horizon import forms
+from horizon import forms
 from horizon import tables
 
 from mistraldashboard import api
-# from mistraldashboard.delayt_workloads import forms as mistral_forms
+from mistraldashboard.delayt_workloads import forms as mistral_forms
 from mistraldashboard.delayt_workloads.tables import \
     DelayTolerantWorkloadsTable
 
@@ -49,6 +49,22 @@ class OverviewView(generic.TemplateView):
         context['delay_tolerant_workload'] = delay_tolerant_workload
 
         return context
+
+
+class CreateView(forms.ModalFormView):
+    template_name = 'mistral/delayt_workloads/create.html'
+    modal_header = _("Create Delay Tolerant Workload")
+    form_id = "create_delayt_workload"
+    form_class = mistral_forms.CreateForm
+    submit_label = _("Create Delay Tolerant Workload")
+    submit_url = reverse_lazy("horizon:mistral:delayt_workloads:create")
+    success_url = reverse_lazy('horizon:mistral:delayt_workloads:index')
+    page_title = _("Create Delay Tolerant Workload")
+
+    def get_form_kwargs(self):
+        kwargs = super(CreateView, self).get_form_kwargs()
+
+        return kwargs
 
 
 class IndexView(tables.DataTableView):
