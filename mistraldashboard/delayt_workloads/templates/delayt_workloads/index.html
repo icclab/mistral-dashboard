@@ -1,9 +1,9 @@
-{% extends 'mistral/default/table.html' %}
-{% load i18n %}
-{% block title %}
-    {% trans "Delay Tolerant Workloads" %}
-{% endblock %}
+{% extends 'mistral/delayt_workloads/_index.html' %}
 
-{% block page_header %}
-  {% include "horizon/common/_page_header.html" with title=_("Delay Tolerant Workloads") %}
-{% endblock page_header %}
+{% block main %}
+    <div class="mistral-wrapper">
+    {{ table.render }}
+    </div>
+    <div data-data="[{'x':'2013-08-21T11:21:40','y':4},{'x':'2013-08-21T11:21:41','y':6}]" class="line-chart">
+    </div>
+{% endblock %}
