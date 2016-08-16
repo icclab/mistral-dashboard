@@ -1,7 +1,7 @@
 from mistraldashboard import exceptions
 
 DASHBOARD = 'mistral'
-ADD_INSTALLED_APPS = ['mistraldashboard']
+ADD_INSTALLED_APPS = ['mistraldashboard', 'chartjs']
 DEFAULT = True
 
 ADD_EXCEPTIONS = {
@@ -9,3 +9,4 @@ ADD_EXCEPTIONS = {
     'not_found': exceptions.NOT_FOUND,
     'unauthorized': exceptions.UNAUTHORIZED,
 }
+

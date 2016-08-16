@@ -1,0 +1,23 @@
+{% extends 'mistral/delayt_workloads/_index.html' %}
+
+
+{% block js %}
+    {% include "mistral/delayt_workloads/_scripts.html" %}
+{% endblock %}
+
+{% load staticfiles %}
+
+{% block main %}
+    <h1>Test - Weekly delay tolerant workload data</h1>
+    <canvas id="myChart" width="1000" height="400"></canvas>
+
+    <script type="text/javascript">
+    $(function () {
+        $.get('{% url "horizon:mistral:delayt_workloads:line_chart_json" %}', function(data) {
+            var ctx = $("#myChart").get(0).getContext("2d");
+            new Chart(ctx).Line(data);
+        });
+    });
+    </script>
+
+{% endblock %}

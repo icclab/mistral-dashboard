@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(DTW % 'detail', views.OverviewView.as_view(), name='detail'),
     url(r'^create$', views.CreateView.as_view(), name='create'),
+    url(r'^line_chart_json$', views.LineChartJSONView.as_view(), name='line_chart_json'),
+    url(r'^line_chart$', views.ChartView.as_view(), name='line_chart'),
 ]
