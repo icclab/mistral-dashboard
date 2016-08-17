@@ -1,6 +1,8 @@
 {% extends 'mistral/delayt_workloads/_index.html' %}
 
 {% block main %}
+    <a href="{% url 'horizon:mistral:delayt_workloads:line_chart' %}">Statistics</a>
+
     <div class="mistral-wrapper">
     {{ table.render }}
     </div>
